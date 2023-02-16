@@ -1,0 +1,36 @@
+
+
+
+p-card{
+    margin: 1rem;
+    width: 300px;
+    display: flex;
+    flex-direction: row;
+}
+
+#lista-cards{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    min-width: 300px;
+}
+
+#nomes{
+    padding: 3px;
+}
+
+
+#btns{
+    display: flex;
+    flex-direction: row;
+    margin-left: 150px;
+}
+
+button{
+    margin: 3px;
+}
+
+#verCad{
+    display: flex;
+    align-items: right;
+}

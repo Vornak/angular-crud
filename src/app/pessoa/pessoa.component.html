@@ -1,0 +1,39 @@
+       <p-fieldset legend="Cadastro">
+        <form >
+
+        </form>
+        <div id="input-group">
+            <div id="input-nome">
+                <h2>Nome e Sobrenome</h2>
+                <span class="p-float-label">
+                    <input id="float-input" type="text" pInputText  [(ngModel)]="nome" required="true"> 
+                    <label for="float-input">Nome</label>
+                    
+                </span>
+                <span class="p-float-label">
+                    <input id="float-input" type="text" pInputText [(ngModel)]="sobrenome" required="true"> 
+                    <label for="float-input">Sobrenome</label>
+                </span>
+            </div>
+            <div id="input-calendar">
+                <p-calendar [inline]="false" placeholder="Data de Nascimento" [(ngModel)]="calendar" [showTime]="false" [required]="true" dateFormat="dd/mm/yy"></p-calendar>
+                
+                <div id="cidade">
+                    <p-dropdown [options]="cities" [(ngModel)]="selectedCity" optionLabel="name" optionValue="code" placeholder="Onde você nasceu?" [required]="true"></p-dropdown>
+                </div>
+            </div>
+        </div> 
+
+        <div id="input-generos">
+            <h2>Sexo</h2>
+            <p-checkbox name="groupname" value="Feminino" label="Feminino" class="checkbox" [(ngModel)]="gen" ngClass="check" (onChange)="onChange()"></p-checkbox>
+            <p-checkbox name="groupname" value="Masculino" label="Masculino" class="checkbox" [(ngModel)]="gen" ngClass="check" (onChange)="onChange()"></p-checkbox>
+            <p-checkbox name="groupname" value="Não-Binário" label="Não-Binário" class="checkbox" [(ngModel)]="gen" ngClass="check" (onChange)="onChange()"></p-checkbox>
+        </div>
+
+        <!--<p-messages *ngIf="isOk" [(value)]="msgOk"></p-messages>-->
+
+        <p-button type="button" [disabled]="btnCheck" label="Enviar" (click)="enviaform()" ngModel="btn-submit"></p-button>
+    
+    </p-fieldset>
+

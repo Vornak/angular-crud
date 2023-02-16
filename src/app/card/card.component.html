@@ -1,0 +1,31 @@
+<main>
+    <p-button id="verCad" label="Ver cadastros" (click)="getRegistro()"></p-button>
+
+    <div id="lista-cards">
+        <p-card id="card" *ngFor="let pessoa of pessoas">
+    
+            <div>
+                <div id="nomes">
+                    <h1>{{pessoa.nome}}</h1>
+                    <h4>{{pessoa.sobrenome}}</h4>
+                </div>
+                <div id="descricao">
+                    <ul>
+                        <li>
+                            <p class="descricao">Idade </p>
+                        </li>
+                        <li>
+                            <p class="descricao">Gênero </p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div id="btns">
+                <button pButton class="p-button-success" icon="pi pi-pencil" (click)="edit()"></button>
+                <button pButton class="p-button-warning" icon="pi pi-info-circle" (click)="info()"></button>
+                <button pButton class="p-button-danger" icon="pi pi-trash" (click)="trash()"></button>
+            </div>
+        </p-card>
+    </div>
+</main>
+

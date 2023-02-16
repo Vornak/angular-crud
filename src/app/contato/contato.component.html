@@ -1,0 +1,26 @@
+<p-fieldset legend="Contato">
+    <div>
+        <label for="tell"><h2>Telefone</h2></label>
+        <p-inputMask id="tell" mask="9 9999-9999" placeholder="9 9999-9999" class="inputs" [(ngModel)]="tell"></p-inputMask>
+    </div>
+    <div>
+        <span class="p-float-label" id="email">
+            <input id="float-input" type="email" pInputText class="inputs" [(ngModel)]="email"> 
+            <label for="float-input" >Email</label>
+        </span>  
+    </div>
+
+
+
+    <p-messages severity="error" *ngIf="formInvalid">
+            <ng-template pTemplate>
+                <span class="custom-message" >Preencha todos os campos.</span>
+            </ng-template>
+    </p-messages>
+    <button pButton type="button" label="Enviar" id="btn"></button>
+    
+</p-fieldset>
+
+
+  
+

@@ -1,0 +1,39 @@
+#input-group{
+    display: flex;
+}
+
+#cidade{
+    margin-top: 24px;
+}
+
+#input-nome{
+    display: flex;
+    flex-direction: column;
+}
+
+.p-float-label{
+    margin: 15px 10px 10px 0;
+}
+
+.checkbox{
+    margin: 10px;
+}
+
+#input-generos{
+    display: flex;
+    flex-direction: column;
+}
+
+#input-calendar{
+    margin: 65px 10px 0 10px;
+}
+
+p-button{
+    margin-left: 360px;
+}
+
+
+
+
+
+

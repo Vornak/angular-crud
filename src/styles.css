@@ -1,0 +1,41 @@
+body{
+    height: 1000px;
+}
+
+p-fieldset{
+    display: flex;
+    justify-content: center;
+
+    margin: 20px 0 30px;
+}
+
+p-button{
+    margin: 0.5rem;
+}
+
+h1{
+    font-size: 25px;
+}
+
+h2{
+    font-size: 17px;
+}
+
+h4{
+    font-weight: 500;
+    font-size: 20px;
+    color: darkgrey;
+}
+
+button{
+    margin: 50px;
+}
+
+
+
+
+
+html, body { height: 100%; }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
