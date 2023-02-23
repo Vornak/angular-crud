@@ -8,6 +8,12 @@ p-card{
     flex-direction: row;
 }
 
+#descricao{
+    display: flex;
+    padding: 0;
+    align-items: left;
+}
+
 #lista-cards{
     display: flex;
     flex-wrap: wrap;

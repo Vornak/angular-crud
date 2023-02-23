@@ -31,7 +31,10 @@ button{
     margin: 50px;
 }
 
-
+li{
+    margin: 0;
+    padding: 0;
+}
 
 
 

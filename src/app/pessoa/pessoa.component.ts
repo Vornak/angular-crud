@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import * as moment from 'moment'
 
 import { City } from '../City';
 import { Pessoa } from '../Pessoa';
@@ -14,20 +14,22 @@ import { PessoaService } from '../pessoa.service';
 export class PessoaComponent implements OnInit {
 
   cities: City[];
-  selectedCity!: City;
+  selectedCity!: string;
+  meses:string[]
+  mesAtual!:string
   
   nome:string = '';
   sobrenome:string = '';
   gen:string[] = [];
   calendar!:Date;
   idade!:any;
+  nascimento!:string
   listaPessoas!:any;
 
   pessoa!:Pessoa;
 
   formInvalid:boolean = false; 
   isOk:boolean = false;
-  btnCheck:boolean=false; //começa como false para fins de testes
 
   ngOnInit(){
 
@@ -36,13 +38,27 @@ export class PessoaComponent implements OnInit {
   //msgOk:Message[] = [{severity:'success', summary:'Enviado!', detail:'Formulário enviado com sucesso'}] ;
 
   constructor(private service: PessoaService) {
+    this.meses = [
+      "Janeiro",
+      "Fevereiro",
+      "Março",
+      "Abril",
+      "Maio",
+      "Junho",
+      "Julho",
+      "Agosto",
+      "Setembro",
+      "Outubro",
+      "Novembro",
+      "Dezembro"
+    ];
 
     this.cities = [
-        {name: 'New York', code: 'NY'},
-        {name: 'Rome', code: 'RM'},
-        {name: 'London', code: 'LDN'},
-        {name: 'Istanbul', code: 'IST'},
-        {name: 'Paris', code: 'PRS'}
+        {name: 'Brasil', code: ''},
+        {name: 'Estados Unidos', code: ''},
+        {name: 'Uruguai', code: ''},
+        {name: 'Argentina', code: ''},
+        {name: 'Paraguai', code: ''}
     ];
   }
   onChange(){
@@ -52,31 +68,38 @@ export class PessoaComponent implements OnInit {
   }
 
   getPessoa(){
-   return this.service.getAll().subscribe(data=>(
+    return this.service.getAll().subscribe(data=>(
     this.listaPessoas = JSON.stringify(data)
    ));
   }
 
-  calcIdade(calendar:Date){
-    this.idade = [calendar.getDay(), calendar.getMonth(), calendar.getFullYear()]
-    return console.log(this.idade)
+  calcIdade(nasc: any): number {
+    return this.idade = moment().diff(nasc, 'years');
   }
 
-
-
+  formatDate(){
+        const dia  = this.calendar.getDate().toString()
+        //const mes  = (this.calendar.getMonth()+1).toString() //+1 pois no getMonth janeiro começa com zero
+        const ano = this.calendar.getFullYear().toString();
+        this.mesAtual = this.meses[this.calendar.getMonth()] 
+    return dia+" de "+this.mesAtual+" de "+ano;
+  }
   enviaform(){
-    if(!this.nome || !this.sobrenome || this.calendar){
+    if(!this.nome || !this.sobrenome){
       this.formInvalid = true;
       this.isOk = false;
     }
     else{     
       //FORMULARIO OK
-      this.isOk = false;
-      this.formInvalid = false;
+//      this.isOk = false;
+//      this.formInvalid = false;
 
 
-      this.pessoa = {nome:this.nome, sobrenome:this.sobrenome}
 
+      this.calcIdade(this.calendar)
+      console.log(this.selectedCity)
+      this.pessoa = {nome:this.nome, sobrenome:this.sobrenome, idade:this.idade, 
+        nascimento:this.formatDate(), genero:this.gen.toString(), naturalidade:this.selectedCity}
       this.service.save(this.pessoa).subscribe(data=>(this.listaPessoas = JSON.stringify([data])))
       
       this.getPessoa()

@@ -1,12 +1,9 @@
        <p-fieldset legend="Cadastro">
-        <form >
-
-        </form>
         <div id="input-group">
             <div id="input-nome">
                 <h2>Nome e Sobrenome</h2>
                 <span class="p-float-label">
-                    <input id="float-input" type="text" pInputText  [(ngModel)]="nome" required="true"> 
+                    <input id="float-input" type="text" pInputText [(ngModel)]="nome" required="true"> 
                     <label for="float-input">Nome</label>
                     
                 </span>
@@ -19,7 +16,7 @@
                 <p-calendar [inline]="false" placeholder="Data de Nascimento" [(ngModel)]="calendar" [showTime]="false" [required]="true" dateFormat="dd/mm/yy"></p-calendar>
                 
                 <div id="cidade">
-                    <p-dropdown [options]="cities" [(ngModel)]="selectedCity" optionLabel="name" optionValue="code" placeholder="Onde você nasceu?" [required]="true"></p-dropdown>
+                    <p-dropdown [options]="cities" [(ngModel)]="selectedCity" optionLabel="name" optionValue="name" placeholder="Onde você nasceu?" [required]="true"></p-dropdown>
                 </div>
             </div>
         </div> 
@@ -33,7 +30,7 @@
 
         <!--<p-messages *ngIf="isOk" [(value)]="msgOk"></p-messages>-->
 
-        <p-button type="button" [disabled]="btnCheck" label="Enviar" (click)="enviaform()" ngModel="btn-submit"></p-button>
+        <p-button type="button" label="Enviar" (click)="enviaform()"></p-button>
     
     </p-fieldset>
 

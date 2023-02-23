@@ -1,7 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatCardModule } from '@angular/material/card';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AccordionModule } from 'primeng/accordion';
@@ -17,17 +18,12 @@ import { MessageModule } from 'primeng/message';
 import { MessagesModule } from 'primeng/messages';
 import { TableModule } from 'primeng/table';
 import { ToolbarModule } from 'primeng/toolbar';
-import { ReactiveFormsModule } from '@angular/forms';
-import {MatCardModule} from '@angular/material/card';
 
 import { AppComponent } from './app.component';
 import { CardComponent } from './card/card.component';
 import { ContatoComponent } from './contato/contato.component';
 import { PessoaService } from './pessoa.service';
 import { PessoaComponent } from './pessoa/pessoa.component';
-
-
-
 
 
 
