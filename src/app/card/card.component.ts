@@ -37,16 +37,16 @@ export class CardComponent {
 
   }
 
-  edit(){
-    console.log('editar')
+  edit(p:any){
+    this.service.edit(p)
   }
 
   info(){
     console.log('info')
   }
 
-  trash(){
-    console.log('trash')
+  trash(p:any){
+    this.service.remove(p).subscribe(data=>(console.log(data)))
   }
   
 

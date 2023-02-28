@@ -27,9 +27,8 @@
                     </div>
                 </div>
                 <div id="btns">
-                    <button pButton class="p-button-success" icon="pi pi-pencil" (click)="edit()"></button>
-                    <button pButton class="p-button-warning" icon="pi pi-info-circle" (click)="info()"></button>
-                    <button pButton class="p-button-danger" icon="pi pi-trash" (click)="trash()"></button>
+                    <button pButton class="p-button-success" icon="pi pi-pencil" (click)="edit($event)"></button>
+                    <button pButton class="p-button-danger" icon="pi pi-trash" (click)="trash(pessoa.id)"></button>
                 </div>
             </span>
         </p-card>
