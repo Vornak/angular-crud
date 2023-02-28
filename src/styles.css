@@ -1,12 +1,17 @@
-body{
-    height: 1000px;
+.p-inputtext, .p-dropdown{
+    border: none;
+
 }
 
-p-fieldset{
-    display: flex;
-    justify-content: center;
+.p-inputtext:enabled:focus, .p-dropdown:focus{
+    border: none;
+    box-shadow: none;
+}
 
-    margin: 20px 0 30px;
+.p-card{
+    background:none;
+    border: none;
+    box-shadow: none;
 }
 
 p-button{

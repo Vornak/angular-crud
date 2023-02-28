@@ -1,6 +1,6 @@
 
 export interface Pessoa{
-    id?:any
+    id?:number
     nome:string
     sobrenome:string
     idade:number

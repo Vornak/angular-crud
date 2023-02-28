@@ -1,36 +1,37 @@
 <main>
-    <p-button id="verCad" label="Ver cadastros" (click)="getRegistro()"></p-button>
+    <p-button id="verCad" label="Atualizar cadastros" (click)="getRegistro()"></p-button>
 
     <div id="lista-cards">
-        <p-card id="card" *ngFor="let pessoa of pessoas">
-    
-            <div>
-                <div id="nomes">
-                    <h1>{{pessoa.nome}}</h1>
-                    <h4>{{pessoa.sobrenome}}</h4>
+        <p-card *ngFor="let pessoa of pessoas">
+            <span id="card">
+                <div>
+                    <div id="nomes">
+                        <h1>{{pessoa.nome}}</h1>
+                        <h4>{{pessoa.sobrenome}}</h4>
+                    </div>
+                    <div id="descricao">
+                        <ul>
+                            <li>
+                                <p class="descricao">Idade: {{pessoa.idade}} anos </p>
+                            </li>
+                            <li>
+                                <p class="descricao">Gênero: {{pessoa.genero}} </p>
+                            </li>
+                            <li>
+                                <p class="descricao">Nascido em {{pessoa.nascimento}}</p>
+                            </li>
+                            <li>
+                                <p class="descricao">Naturalidade: {{pessoa.naturalidade}}</p>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-                <div id="descricao">
-                    <ul>
-                        <li>
-                            <p class="descricao">Idade: {{pessoa.idade}} anos </p>
-                        </li>
-                        <li>
-                            <p class="descricao">Gênero: {{pessoa.genero}} </p>
-                        </li>
-                        <li>
-                            <p class="descricao">Nascido em {{pessoa.nascimento}}</p>
-                        </li>
-                        <li>
-                            <p class="descricao">Naturalidade: {{pessoa.naturalidade}}</p>
-                        </li>
-                    </ul>
+                <div id="btns">
+                    <button pButton class="p-button-success" icon="pi pi-pencil" (click)="edit()"></button>
+                    <button pButton class="p-button-warning" icon="pi pi-info-circle" (click)="info()"></button>
+                    <button pButton class="p-button-danger" icon="pi pi-trash" (click)="trash()"></button>
                 </div>
-            </div>
-            <div id="btns">
-                <button pButton class="p-button-success" icon="pi pi-pencil" (click)="edit()"></button>
-                <button pButton class="p-button-warning" icon="pi pi-info-circle" (click)="info()"></button>
-                <button pButton class="p-button-danger" icon="pi pi-trash" (click)="trash()"></button>
-            </div>
+            </span>
         </p-card>
     </div>
 </main>

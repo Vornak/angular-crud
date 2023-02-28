@@ -79,7 +79,6 @@ export class PessoaComponent implements OnInit {
 
   formatDate(){
         const dia  = this.calendar.getDate().toString()
-        //const mes  = (this.calendar.getMonth()+1).toString() //+1 pois no getMonth janeiro começa com zero
         const ano = this.calendar.getFullYear().toString();
         this.mesAtual = this.meses[this.calendar.getMonth()] 
     return dia+" de "+this.mesAtual+" de "+ano;

@@ -1,18 +1,40 @@
-#input-group{
+p-fieldset{
     display: flex;
+    justify-content: center;
+    margin: 20px 0 30px;
+
 }
 
-#cidade{
-    margin-top: 24px;
+#input-group{
+    display: flex;
+    min-width: 70px;
+    flex-wrap: wrap;
+    max-width: fit-content;
+    max-width: 600px;
+
+}
+
+.inputs-cidade-calendario{
+    display: flex;
+    margin-top: 10px;
+}
+
+.inputs{
+    min-width: 300px;
+    max-width: 500px;
+    margin: 0 3px 0;
+
+    border-radius: 0;
+    border-bottom: 1px solid gray;
+}
+
+.inputs-item{
+
 }
 
 #input-nome{
     display: flex;
-    flex-direction: column;
-}
-
-.p-float-label{
-    margin: 15px 10px 10px 0;
+    flex-direction: row;
 }
 
 .checkbox{
@@ -24,12 +46,11 @@
     flex-direction: column;
 }
 
-#input-calendar{
-    margin: 65px 10px 0 10px;
-}
 
-p-button{
-    margin-left: 360px;
+p-fieldset p-button{
+    display: flex;
+    justify-content: center;
+    
 }
 
 

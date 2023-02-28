@@ -1,11 +1,22 @@
-
-
+main{
+    border-top: 1px solid gray;
+    padding: 20px;
+}
 
 p-card{
     margin: 1rem;
-    width: 300px;
     display: flex;
     flex-direction: row;
+
+    background:linear-gradient(-45deg, rgb(179, 218, 255),rgb(233, 247, 255));
+    
+    border-radius: 22px;
+    box-shadow: 5px 4px 22px 5px rgb(187, 187, 187);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+p-card:hover {
+    transform:scale(1.03);
 }
 
 #descricao{
@@ -18,7 +29,7 @@ p-card{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    min-width: 300px;
+    min-width: 250px;
 }
 
 #nomes{
@@ -32,11 +43,11 @@ p-card{
     margin-left: 150px;
 }
 
+p-button{
+    margin: 0 0 10px 35px;
+}
+
 button{
     margin: 3px;
 }
 
-#verCad{
-    display: flex;
-    align-items: right;
-}
