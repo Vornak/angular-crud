@@ -31,13 +31,14 @@ export class PessoaService {
     return this.http.post(this.API, p);
   }
 
-  edit(p:Pessoa) {
+  put(p:Pessoa) {
     return this.http.put<Pessoa>(`${this.API}/${p.id}`, p);
   }
   
   remove(id: string) {
     console.log(id)
-    return this.http.delete(`${this.API}/${id}`);
+    return this.http.delete(`${this.API}/${id}`)
+    
   }
   
 }

@@ -18,12 +18,16 @@ import { MessageModule } from 'primeng/message';
 import { MessagesModule } from 'primeng/messages';
 import { TableModule } from 'primeng/table';
 import { ToolbarModule } from 'primeng/toolbar';
+import {DialogModule} from 'primeng/dialog';
 
 import { AppComponent } from './app.component';
 import { CardComponent } from './card/card.component';
 import { ContatoComponent } from './contato/contato.component';
 import { PessoaService } from './pessoa.service';
 import { PessoaComponent } from './pessoa/pessoa.component';
+import { EditarCadastroComponent } from './editar-cadastro/editar-cadastro.component';
+import { AppRoutingModule } from './app-routing.module';
+import { HeaderComponent } from './header/header.component';
 
 
 
@@ -32,7 +36,9 @@ import { PessoaComponent } from './pessoa/pessoa.component';
     AppComponent,
     PessoaComponent,
     ContatoComponent,
-    CardComponent
+    CardComponent,
+    EditarCadastroComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -54,7 +60,9 @@ import { PessoaComponent } from './pessoa/pessoa.component';
     HttpClientModule,
     MatCardModule,
     ToolbarModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    DialogModule,
+    AppRoutingModule
 
   ],
   providers: [PessoaService],

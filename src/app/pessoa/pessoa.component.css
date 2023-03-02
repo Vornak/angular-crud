@@ -28,7 +28,6 @@ p-fieldset{
     border-bottom: 1px solid gray;
 }
 
-
 #input-nome{
     display: flex;
     flex-direction: row;

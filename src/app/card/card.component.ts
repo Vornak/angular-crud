@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {  delay, Observable } from 'rxjs';
 
 import { Pessoa } from '../Pessoa';
 import { PessoaService } from '../pessoa.service';
@@ -16,37 +17,44 @@ export class CardComponent {
   gen!:string;
   
   pessoas!:Pessoa[];
+  pessoas$!:Observable<Pessoa[]>
 
   nasc!:Date;
   idade!:number;
   num!:number;
   email!:string;
 
+  display:boolean = false
+  lixeira:boolean = true
+
   //clicked:boolean = false;
 
   constructor(private service: PessoaService){}
 
 
-  //PARA CADA ELEMENTO DA ARRAY QUE RETORNA FAZER UM CARD COM OS DADOS
   getRegistro(){
-    this.service.getAll().subscribe(data => (
-      this.pessoas = data
-    ))
-  }
-  listaDados(){
-
+    return this.pessoas$ = this.service.getAll()
   }
 
   edit(p:any){
-    this.service.edit(p)
+    this.display = true;
   }
 
   info(){
     console.log('info')
   }
 
-  trash(p:any){
-    this.service.remove(p).subscribe(data=>(console.log(data)))
+  remover(p:any){
+    console.log('removido')
+    this.service.remove(p).subscribe(()=>{
+      this.display = false;
+      alert("Cadastro excluído");
+      this.getRegistro().subscribe(()=>{})
+    })
+  }
+
+  trash(){
+    this.display = true
   }
   
 
