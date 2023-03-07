@@ -6,6 +6,43 @@ a{
     text-decoration: none;
 }
 
+.inputs{
+    min-width: 300px;
+    max-width: 500px;
+    margin: 0 3px 0;
+
+    border-radius: 0;
+    border-bottom: 1px solid gray;
+}
+
+#input-group{
+    display: flex;
+    min-width: 70px;
+    flex-wrap: wrap;
+    max-width: fit-content;
+    max-width: 600px;
+
+}
+
+#input-nome{
+    display: flex;
+    flex-direction: row;
+}
+
+.inputs-cidade-calendario{
+    display: flex;
+    margin-top: 10px;
+}
+
+.checkbox{
+    margin: 10px;
+}
+
+#input-generos{
+    display: flex;
+    flex-direction: column;
+}
+
 #navHeader{
     display: flex;
     flex-direction: row;

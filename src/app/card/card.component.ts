@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {  delay, Observable } from 'rxjs';
 
 import { Pessoa } from '../Pessoa';
@@ -10,7 +10,7 @@ import { PessoaService } from '../pessoa.service';
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.css']
 })
-export class CardComponent {
+export class CardComponent implements OnInit {
 
   nome!:string;
   sobrenome!:string;
@@ -24,20 +24,31 @@ export class CardComponent {
   num!:number;
   email!:string;
 
-  display:boolean = false
+  displayex:boolean = false
+  displayatt:boolean = false
   lixeira:boolean = true
+  editar!:Pessoa
 
   //clicked:boolean = false;
 
   constructor(private service: PessoaService){}
 
-
-  getRegistro(){
+  getRegistro():Observable<Pessoa[]>{
     return this.pessoas$ = this.service.getAll()
   }
 
-  edit(p:any){
-    this.display = true;
+
+  ngOnInit():void{
+    this.getRegistro()
+  }
+
+  edit(p:Pessoa){ 
+    this.displayatt = true
+    this.service.getOne(p).subscribe((data)=>{
+      this.editar = data;
+      console.log(this.editar.nome)
+    })
+    
   }
 
   info(){
@@ -45,18 +56,20 @@ export class CardComponent {
   }
 
   remover(p:any){
-    console.log('removido')
     this.service.remove(p).subscribe(()=>{
-      this.display = false;
+      this.displayex = false;
       alert("Cadastro excluído");
       this.getRegistro().subscribe(()=>{})
     })
   }
 
   trash(){
-    this.display = true
+    this.displayex = true
+
   }
   
 
 
 }
+
+

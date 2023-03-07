@@ -1,7 +1,4 @@
-<app-header></app-header>
 <main>
-    <p-button id="verCad" icon="pi pi-refresh" (click)="getRegistro()"></p-button>
-
     <div id="lista-cards">
         <p-card *ngFor="let pessoa of pessoas$ | async">
             <span id="card">
@@ -28,41 +25,72 @@
                     </div>
                 </div>
                 <div id="btns">
-                    <button pButton class="p-button-success" icon="pi pi-pencil" (click)="edit(pessoa.id)"></button>
+                    <button pButton class="p-button-success" (click)="edit(pessoa)" icon="pi pi-pencil"></button>
                     <button pButton class="p-button-danger" icon="pi pi-trash" (click)="trash()"></button>
                 </div>
             </span>
-
         </p-card>
-        <p-dialog header="Atualizar cadastro" [(visible)]="display" *ngFor="let pessoa of pessoas$ | async">
+
+        <p-dialog header="Excluir cadastro" [(visible)]="displayex">
             <div id="descricao">
                 <ul>
                     <li>
-                        <p class="descricao"><strong>Nome: </strong>{{pessoa.nome}}</p>
+                        <p class="descricao"><strong>Nome: </strong>{{editar}}</p>
                     </li>
                     <li>
-                        <p class="descricao"><strong>Sobrenome: </strong> {{pessoa.sobrenome}}</p>
+                        <p class="descricao"><strong>Sobrenome: </strong></p>
                     </li>
                     <li>
-                        <p class="descricao"><strong>Idade: </strong> {{pessoa.idade}} anos </p>
+                        <p class="descricao"><strong>Idade: </strong> </p>
                     </li>
                     <li>
-                        <p class="descricao"><strong>Genero: </strong> {{pessoa.genero}} </p>
+                        <p class="descricao"><strong>Genero: </strong></p>
                     </li>
                     <li>
-                        <p class="descricao"><strong>Nascido em: </strong> {{pessoa.nascimento}}</p>
+                        <p class="descricao"><strong>Nascido em: </strong></p>
                     </li>
                     <li>
-                        <p class="descricao"><strong>Naturalidade: </strong> {{pessoa.naturalidade}}</p>
+                        <p class="descricao"><strong>Naturalidade: </strong></p>
                     </li>
                 </ul>
             </div>
             <p-message *ngIf="lixeira" severity="error" text="Deseja realmente exluir a pessoa com os dados acima?"></p-message>
             <div id="options">
-                <button pButton class="p-button-text" label="Voltar"></button>
-                <button pButton class="p-button-danger" label="Excluir" (click)="remover(pessoa.id)"></button>
+                <button pButton class="p-button-text" label="Voltar" (click)="displayex = false"></button>
+                <button pButton class="p-button-danger" label="Excluir"></button>
             </div>
         </p-dialog>
+
+        <p-dialog header="Atualizar cadastro" [(visible)]="displayatt">
+            <div id="descricao">
+                <ul>
+                    <li>
+                        <p class="descricao"><strong>Nome:</strong></p>
+                    </li>
+                    <li>
+                        <p class="descricao"><strong>Sobrenome: </strong></p>
+                    </li>
+                    <li>
+                        <p class="descricao"><strong>Idade: </strong>anos </p>
+                    </li>
+                    <li>
+                        <p class="descricao"><strong>Genero: </strong>  </p>
+                    </li>
+                    <li>
+                        <p class="descricao"><strong>Nascido em: </strong></p>
+                    </li>
+                    <li>
+                        <p class="descricao"><strong>Naturalidade: </strong></p>
+                    </li>
+                </ul>
+            </div>
+            <p-message *ngIf="lixeira" severity="error" text="Deseja realmente exluir a pessoa com os dados acima?"></p-message>
+            <div id="options">
+                <button pButton class="p-button-text" label="Voltar" (click)="displayatt = false"></button>
+                <button pButton class="p-button-danger" label="Excluir"></button>
+            </div>
+        </p-dialog>
+
     </div>
 </main>
 

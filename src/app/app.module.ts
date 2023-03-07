@@ -25,7 +25,6 @@ import { CardComponent } from './card/card.component';
 import { ContatoComponent } from './contato/contato.component';
 import { PessoaService } from './pessoa.service';
 import { PessoaComponent } from './pessoa/pessoa.component';
-import { EditarCadastroComponent } from './editar-cadastro/editar-cadastro.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HeaderComponent } from './header/header.component';
 
@@ -37,7 +36,6 @@ import { HeaderComponent } from './header/header.component';
     PessoaComponent,
     ContatoComponent,
     CardComponent,
-    EditarCadastroComponent,
     HeaderComponent
   ],
   imports: [

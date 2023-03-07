@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
-import { ComponentFactoryResolver, Injectable } from '@angular/core';
-import { firstValueFrom, Observable } from 'rxjs';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 import { Pessoa } from './Pessoa';
 
@@ -27,6 +27,10 @@ export class PessoaService {
     return this.http.get<Pessoa[]>(this.API)
   }
 
+  getOne(p:Pessoa):Observable<Pessoa>{
+    return this.http.get<Pessoa>(`${this.API}/${p.id}`)
+  }
+
   save(p:any){
     return this.http.post(this.API, p);
   }
@@ -35,7 +39,7 @@ export class PessoaService {
     return this.http.put<Pessoa>(`${this.API}/${p.id}`, p);
   }
   
-  remove(id: string) {
+  remove(id: string){
     console.log(id)
     return this.http.delete(`${this.API}/${id}`)
     
