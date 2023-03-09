@@ -35,8 +35,6 @@ export class PessoaComponent implements OnInit {
 
   }
 
-  //msgOk:Message[] = [{severity:'success', summary:'Enviado!', detail:'Formulário enviado com sucesso'}] ;
-
   constructor(private service: PessoaService) {
     this.meses = [
       "Janeiro",
@@ -83,17 +81,14 @@ export class PessoaComponent implements OnInit {
         this.mesAtual = this.meses[this.calendar.getMonth()] 
     return dia+" de "+this.mesAtual+" de "+ano;
   }
+
+
   enviaform(){
-    if(!this.nome || !this.sobrenome){
+    if(!this.nome || !this.sobrenome || !this.gen || !this.calendar || !this.selectedCity){
       this.formInvalid = true;
       this.isOk = false;
     }
     else{     
-      //FORMULARIO OK
-//      this.isOk = false;
-//      this.formInvalid = false;
-
-
 
       this.calcIdade(this.calendar)
       console.log(this.selectedCity)

@@ -13,7 +13,7 @@
                                 <p class="descricao">Idade: {{pessoa.idade}} anos </p>
                             </li>
                             <li>
-                                <p class="descricao">Gênero: {{pessoa.genero}} </p>
+                                <p class="descricao">Gênero: {{pessoa.genero}}</p>
                             </li>
                             <li>
                                 <p class="descricao">Nascido em {{pessoa.nascimento}}</p>
@@ -26,16 +26,18 @@
                 </div>
                 <div id="btns">
                     <button pButton class="p-button-success" (click)="edit(pessoa)" icon="pi pi-pencil"></button>
-                    <button pButton class="p-button-danger" icon="pi pi-trash" (click)="trash()"></button>
+                    <button pButton class="p-button-danger" icon="pi pi-trash" (click)="trash(pessoa)"></button>
                 </div>
             </span>
+
+            
         </p-card>
 
         <p-dialog header="Excluir cadastro" [(visible)]="displayex">
             <div id="descricao">
                 <ul>
                     <li>
-                        <p class="descricao"><strong>Nome: </strong>{{editar}}</p>
+                        <p class="descricao"><strong>Nome: </strong></p>
                     </li>
                     <li>
                         <p class="descricao"><strong>Sobrenome: </strong></p>
@@ -57,37 +59,49 @@
             <p-message *ngIf="lixeira" severity="error" text="Deseja realmente exluir a pessoa com os dados acima?"></p-message>
             <div id="options">
                 <button pButton class="p-button-text" label="Voltar" (click)="displayex = false"></button>
-                <button pButton class="p-button-danger" label="Excluir"></button>
+                <button pButton class="p-button-danger" label="Excluir" (click)="remover()"></button>
             </div>
         </p-dialog>
 
         <p-dialog header="Atualizar cadastro" [(visible)]="displayatt">
             <div id="descricao">
-                <ul>
-                    <li>
-                        <p class="descricao"><strong>Nome:</strong></p>
-                    </li>
-                    <li>
-                        <p class="descricao"><strong>Sobrenome: </strong></p>
-                    </li>
-                    <li>
-                        <p class="descricao"><strong>Idade: </strong>anos </p>
-                    </li>
-                    <li>
-                        <p class="descricao"><strong>Genero: </strong>  </p>
-                    </li>
-                    <li>
-                        <p class="descricao"><strong>Nascido em: </strong></p>
-                    </li>
-                    <li>
-                        <p class="descricao"><strong>Naturalidade: </strong></p>
-                    </li>
-                </ul>
+                <p-fieldset legend="Editar">
+                    <div id="input-group">
+                        <div id="input-nome">
+                            <div class="inputs">
+                                <span class="p-float-label">
+                                    <input class="input" id="float-input" type="text" pInputText [(ngModel)]="nome" required="true"> 
+                                    <label for="float-input">Nome</label>
+                                </span>
+                            </div>
+                            <div class="inputs">
+                                <span class="p-float-label">
+                                    <input class="input" id="float-input" type="text" pInputText [(ngModel)]="sobrenome" required="true"> 
+                                    <label for="float-input">Sobrenome</label>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="inputs-cidade-calendario">
+                            <div class="inputs-item" class="inputs">
+                                <p-calendar [inline]="false" class="input" placeholder="Data de Nascimento" [(ngModel)]="calendar" [showTime]="false" [required]="true" dateFormat="dd/mm/yy"></p-calendar>
+                            </div>  
+                            <div id="cidade" class="inputs-item" class="inputs">
+                                <p-dropdown class="input" [options]="cities" [(ngModel)]="selectedCity" optionLabel="name" optionValue="name" placeholder="Onde você nasceu?" [required]="true"></p-dropdown>
+                            </div> 
+                        </div>
+                    </div> 
+            
+                    <div id="input-generos">
+                        <h2>Sexo</h2>
+                        <p-checkbox name="groupname" value="Feminino" label="Feminino" class="checkbox" [(ngModel)]="genSelect" ngClass="check" (onChange)="onChange()"></p-checkbox>
+                        <p-checkbox name="groupname" value="Masculino" label="Masculino" class="checkbox" [(ngModel)]="genSelect" ngClass="check" (onChange)="onChange()"></p-checkbox>
+                        <p-checkbox name="groupname" value="Não-Binário" label="Não-Binário" class="checkbox" [(ngModel)]="genSelect" ngClass="check" (onChange)="onChange()"></p-checkbox>
+                    </div>           
+                </p-fieldset>
             </div>
-            <p-message *ngIf="lixeira" severity="error" text="Deseja realmente exluir a pessoa com os dados acima?"></p-message>
             <div id="options">
                 <button pButton class="p-button-text" label="Voltar" (click)="displayatt = false"></button>
-                <button pButton class="p-button-danger" label="Excluir"></button>
+                <button pButton class="p-button-success" label="Atualizar" (click)="enviaform()"></button>
             </div>
         </p-dialog>
 

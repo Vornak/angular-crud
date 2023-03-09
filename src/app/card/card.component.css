@@ -3,8 +3,12 @@ main{
     padding: 20px;
 }
 
+p-dialog{
+    padding: 1rem;
+}
+
 p-card{
-    margin: 1rem;
+    margin: 50px;
     display: flex;
     flex-direction: row;
 
@@ -28,14 +32,13 @@ p-card:hover {
 #lista-cards{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    
     min-width: 250px;
 }
 
 #nomes{
     padding: 3px;
 }
-
 
 #btns{
     display: flex;

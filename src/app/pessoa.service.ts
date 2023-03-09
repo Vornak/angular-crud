@@ -12,12 +12,6 @@ export class PessoaService {
 
   private readonly API = '/api/testes';
 
-  formInvalid:boolean = false;
-  isOk:boolean = false;
-
-  nome!:string;
-  sobrenome!:string;
-
   listaPessoas!:string[];
   pessoa!:Pessoa;
 
@@ -35,14 +29,12 @@ export class PessoaService {
     return this.http.post(this.API, p);
   }
 
-  put(p:Pessoa) {
-    return this.http.put<Pessoa>(`${this.API}/${p.id}`, p);
+  put(p:Pessoa){
+    return this.http.put<Pessoa>(`${this.API}/update/${p.id}`, p);
   }
   
-  remove(id: string){
-    console.log(id)
+  remove(id: any){
     return this.http.delete(`${this.API}/${id}`)
-    
   }
   
 }
